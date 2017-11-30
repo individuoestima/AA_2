@@ -1,1 +1,3 @@
-# AA_2
+AA_2
+
+Linear search and randomized search in python!
