@@ -1,6 +1,6 @@
 import random
 
-with open('/home/kanto/Documents/AA/SequenciasDeInteiros/aleatorios02500.txt') as f:
+with open('/home/kanto/Documents/AA/AA_2/valores') as f:
     values = f.readlines();
 
 values =[int(x.strip()) for x in values]
@@ -29,14 +29,14 @@ def randomized_search(array,n):
             return True;
     return False;
 
-num = 14564097
+num = 1;
 
 if(linear_seach(values,num)):
-    print(opCount)
+    print("Linear " + str(opCount))
 else:
     print("Número não encontrado")
 
 if(randomized_search(values,num)):
-    print(opCount1)
+    print("Randomized " + str(opCount1))
 else:
     print("Número não encontrado")
