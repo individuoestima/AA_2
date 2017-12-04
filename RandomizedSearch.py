@@ -1,6 +1,7 @@
 import random
+import os
 
-with open('/home/kanto/Documents/AA/AA_2/valores') as f:
+with open(os.path.join(os.path.dirname(__file__), 'valores')) as f:
     values = f.readlines();
 
 values =[int(x.strip()) for x in values]
@@ -29,9 +30,17 @@ def randomized_search(array,n):
             return True;
     return False;
 
-num = 1;
+num = 50;
 
-if(linear_seach(values,num)):
+file = open('results','w')
+file.write("Searching       Operations\n")
+for i in range(0,10):
+    randomized_search(values,num)
+    file.write(str(num) + "        "+str(opCount1)+"\n")
+    opCount1 = 0
+
+
+"""if(linear_seach(values,num)):
     print("Linear " + str(opCount))
 else:
     print("Número não encontrado")
@@ -39,4 +48,4 @@ else:
 if(randomized_search(values,num)):
     print("Randomized " + str(opCount1))
 else:
-    print("Número não encontrado")
+    print("Número não encontrado")"""
