@@ -1,7 +1,7 @@
 import random
 import os
 
-with open(os.path.join(os.path.dirname(__file__), 'valores')) as f:
+with open(os.path.join(os.path.dirname(__file__), 'random_values')) as f:
     values = f.readlines();
 
 values =[int(x.strip()) for x in values]
@@ -30,17 +30,19 @@ def randomized_search(array,n):
             return True;
     return False;
 
-num = 50;
+num = 99;
 
-file = open('results','w')
+"""file = open('results_random','w')
+linear_seach(values,num)
+print(opCount)
 file.write("Searching       Operations\n")
-for i in range(0,10):
+for i in range(0,30):
     randomized_search(values,num)
-    file.write(str(num) + "        "+str(opCount1)+"\n")
-    opCount1 = 0
+    file.write(str(num) + "              "+str(opCount1)+"\n")
+    opCount1 = 0"""
 
 
-"""if(linear_seach(values,num)):
+if(linear_seach(values,num)):
     print("Linear " + str(opCount))
 else:
     print("Número não encontrado")
@@ -48,4 +50,4 @@ else:
 if(randomized_search(values,num)):
     print("Randomized " + str(opCount1))
 else:
-    print("Número não encontrado")"""
+    print("Número não encontrado")
