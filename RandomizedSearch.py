@@ -1,5 +1,6 @@
 import random
 import os
+import sys
 
 with open(os.path.join(os.path.dirname(__file__), 'random_values')) as f:
     values = f.readlines();
@@ -30,66 +31,72 @@ def randomized_search(array,n):
             return True;
     return False;
 
-num = 33;
-times = 100;
-print("Executed " + str(times)+" times")
-linear = 0 
-randomized = 0
+def main():
+    global opCount
+    global opCount1
+    num = int(sys.argv[1]);
+    times = int(sys.argv[2]);
+    print("Executed " + str(times)+" times")
+    linear = 0 
+    randomized = 0
 
-for i in range(0,times):
-    linear_seach(values,num)
-    linear += opCount
-    randomized_search(values,num)
-    randomized+=opCount1
-    opCount = 0
-    opCount1 = 0
-print("--------------------------------------------------------------------")
-print("             Repeated values - 1000 elements")
-print("--------------------------------------------------------------------")
-print("Average of Linear Search " +str(int(linear/times))+ " operations!" )
-print("Average of Random Search " +str(int(randomized/times))+ " operations!" )
-print("--------------------------------------------------------------------")
+    for i in range(0,times):
+        linear_seach(values,num)
+        linear += opCount
+        randomized_search(values,num)
+        randomized+=opCount1
+        opCount = 0
+        opCount1 = 0
+    print("--------------------------------------------------------------------")
+    print("             Repeated values - 1000 elements")
+    print("--------------------------------------------------------------------")
+    print("Average of Linear Search " +str(int(linear/times))+ " operations!" )
+    print("Average of Random Search " +str(int(randomized/times))+ " operations!" )
+    print("--------------------------------------------------------------------")
 
-linear = 0
-randomized = 0
+    linear = 0
+    randomized = 0
 
-with open(os.path.join(os.path.dirname(__file__), 'sorted_values')) as f:
-    values1 = f.readlines();
+    with open(os.path.join(os.path.dirname(__file__), 'sorted_values')) as f:
+        values1 = f.readlines();
 
-values1 =[int(x.strip()) for x in values1]
+    values1 =[int(x.strip()) for x in values1]
 
-for i in range(0,times):
-    linear_seach(values1,num)
-    linear += opCount
-    randomized_search(values1,num)
-    randomized+=opCount1
-    opCount = 0
-    opCount1 = 0
+    for i in range(0,times):
+        linear_seach(values1,num)
+        linear += opCount
+        randomized_search(values1,num)
+        randomized+=opCount1
+        opCount = 0
+        opCount1 = 0
 
-print("             Non-repeated sorted values - 100 elements")
-print("--------------------------------------------------------------------")
-print("Average of Linear Search " +str(int(linear/times))+ " operations!" )
-print("Average of Random Search " +str(int(randomized/times))+ " operations!" )
-print("--------------------------------------------------------------------")
+    print("             Non-repeated sorted values - 100 elements")
+    print("--------------------------------------------------------------------")
+    print("Average of Linear Search " +str(int(linear/times))+ " operations!" )
+    print("Average of Random Search " +str(int(randomized/times))+ " operations!" )
+    print("--------------------------------------------------------------------")
 
-linear = 0
-randomized = 0
+    linear = 0
+    randomized = 0
 
-with open(os.path.join(os.path.dirname(__file__), 'non_repeated_values')) as f:
-    values2 = f.readlines();
+    with open(os.path.join(os.path.dirname(__file__), 'non_repeated_values')) as f:
+        values2 = f.readlines();
 
-values2 =[int(x.strip()) for x in values2]
+    values2 =[int(x.strip()) for x in values2]
 
-for i in range(0,times):
-    linear_seach(values2,num)
-    linear += opCount
-    randomized_search(values2,num)
-    randomized+=opCount1
-    opCount = 0
-    opCount1 = 0
+    for i in range(0,times):
+        linear_seach(values2,num)
+        linear += opCount
+        randomized_search(values2,num)
+        randomized+=opCount1
+        opCount = 0
+        opCount1 = 0
 
-print("             Non repeated non sorted values - 100 elements")
-print("--------------------------------------------------------------------")
-print("Average of Linear Search " +str(int(linear/times))+ " operations!" )
-print("Average of Random Search " +str(int(randomized/times))+ " operations!" )
-print("--------------------------------------------------------------------")
+    print("             Non repeated non sorted values - 100 elements")
+    print("--------------------------------------------------------------------")
+    print("Average of Linear Search " +str(int(linear/times))+ " operations!" )
+    print("Average of Random Search " +str(int(randomized/times))+ " operations!" )
+    print("--------------------------------------------------------------------")
+
+if __name__ == "__main__":
+    main()
