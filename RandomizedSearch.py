@@ -12,7 +12,7 @@ opCount1 = 0
 
 def linear_seach(array,n):
     global opCount
-    for i in range(0,len(array)-1):
+    for i in range(0,len(array)):
         opCount+=1
         if array[i] == n:
             return True;
@@ -21,7 +21,7 @@ def linear_seach(array,n):
 def randomized_search(array,n):
     global opCount1
     l = [];
-    for i in range(0,len(array)-1):
+    for i in range(0,len(array)):
         test = random.randint(0,len(array)-1)
         while test in l:
             test = random.randint(0,len(array)-1)
